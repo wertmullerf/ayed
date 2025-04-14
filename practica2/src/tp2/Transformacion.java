@@ -10,6 +10,7 @@ public class Transformacion {
         return suma(this.ab);
     }
 
+
     private BinaryTree<Integer> suma(BinaryTree<Integer> nodo){
         if(nodo == null || nodo.getData() == null) return null;
 

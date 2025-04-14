@@ -125,6 +125,8 @@ public class BinaryTree <T> {
 			}
 		}
 	}
+
+
 	// 0<=n<=m
 	public void entreNiveles(int n, int m){
 		if (this == null || this.data == null) return;
