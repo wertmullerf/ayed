@@ -7,9 +7,10 @@ import java.util.List;
 public class PruebaEjer10 {
     public static void main(String[] args) {
         GeneralTree<Integer> hoja1 = new GeneralTree<>(1);
-        GeneralTree<Integer> hoja2 = new GeneralTree<>(1);
-        hoja2.addChild(new GeneralTree<>(1)); // último 1
-
+        GeneralTree<Integer> hoja2 = new GeneralTree<>(0);
+        GeneralTree<Integer> hoja3 = new GeneralTree<>(0);
+        hoja2.addChild(hoja3); // último 1
+        hoja3.addChild(new GeneralTree<>(1));
         GeneralTree<Integer> hijoIzq = new GeneralTree<>(1);
         hijoIzq.addChild(hoja1);
 

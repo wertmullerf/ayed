@@ -66,24 +66,25 @@ public class ParcialArboles {
     public static List<Integer> resolverPunto10(GeneralTree<Integer> arbol){
         List<Integer> lista = new LinkedList<>();
         List<Integer> camino = new LinkedList<>();
-        int[] maxValor ={ -1};
+        ContenedorMax maxValor = new ContenedorMax(-1);
+
         calcularCamino(arbol,0,0,lista,camino,maxValor);
         return camino;
     }
 
-    private static List<Integer> calcularCamino(GeneralTree<Integer> arbol, int nivel, int sumaActual, List<Integer> lista, List<Integer> camino, int[] maxValor) {
+    private static void calcularCamino(GeneralTree<Integer> arbol, int nivel, int sumaActual, List<Integer> lista, List<Integer> camino, ContenedorMax maxValor) {
         int valor = arbol.getData();
         sumaActual += valor * nivel;
 
-        //boolean agregado = false;
-        //if (valor == 1) {
+        boolean agregado = false;
+        if (valor == 1) {
             lista.add(valor);
-           // agregado = true;
-        //}
+            agregado = true;
+        }
 
         if (arbol.isLeaf()) {
-            if (sumaActual > maxValor[0]) {
-                maxValor[0] = sumaActual;
+            if (sumaActual > maxValor.getValor()) {
+                maxValor.setValor(sumaActual);
                 camino.clear();
                 camino.addAll(lista);
             }
@@ -93,11 +94,9 @@ public class ParcialArboles {
             }
         }
 
-       // if (agregado) {
+       if (agregado) {
             lista.remove(lista.size() - 1); // backtracking solo si agregaste
-        //}
-
-        return camino;
+        }
     }
     public static void main(String[] args) {
         // Nivel 2 (hojas)
