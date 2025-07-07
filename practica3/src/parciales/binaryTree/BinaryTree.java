@@ -112,7 +112,7 @@ public class BinaryTree <T> {
         while (!cola.isEmpty()) {
             BinaryTree<T> ab = cola.poll();
             if (ab != null) {
-                System.out.print(ab.getData() + " ");
+                System.out.print(ab.getData().toString() + "  ----  ");
                 if (ab.hasLeftChild()) {
                     cola.offer(ab.getLeftChild());
                 }
